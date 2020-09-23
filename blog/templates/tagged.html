@@ -1,9 +1,0 @@
-def tagged(request, slug):
-tag = get_object_or_404(Tag, slug=slug)
-# Filter posts by tag name
-posts = Post.objects.filter(tags=tag)
-context = {
-'tag':tag,
-'posts':posts,
-}
-return render(request, 'home.html', context)
