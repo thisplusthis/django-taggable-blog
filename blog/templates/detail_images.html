@@ -1,0 +1,7 @@
+<div class="img-container">
+{% for image_obj in blog_post.images.all %}
+  <div class="square">
+    <a target="_blank" href="{{ image_obj.image.url }}"><img title="{{ image_obj.caption }}" src="{{ image_obj.image.url }}" class="img-thumb" /></a>
+  </div>
+{% endfor %}
+</div>

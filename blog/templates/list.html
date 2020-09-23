@@ -1,0 +1,132 @@
+<style>
+  body {
+    font-family: "Helvetica Neue";
+    color: #eee;
+    background-color: #000;
+    margin: 100px;
+    padding: 100px;
+  }
+
+  /* unvisited link */
+  a:link {
+    color: #39c5ff;
+    text-decoration: none;
+  }
+
+  /* visited link */
+  a:visited {
+    color: #39c5ff;
+  }
+
+  /* mouse over link */
+  a:hover {
+    color: #39c5ff;
+  }
+
+  /* selected link */
+  a:active {
+    color: #39c5ff;
+  }
+
+  .container {
+    width: 75%;
+  }
+
+  .post-title {
+    background-color: #eee;
+    color: #000;
+    font-size: 2em;
+    padding-left: 10px;
+    opacity: 0.9;
+  }
+
+  .post-body {
+    font-family: "Menlo";
+    font-size: 1.0em;
+    line-height: 1.5em;
+    letter-spacing: 2px;
+    opacity: 0.8;
+  }
+
+  .blog-post-container {
+    padding: 5px 30px 30px 30px;
+    border: 1px solid #eee;
+    margin-bottom: 75px;
+  }
+
+  .right-nav {
+    position: fixed;
+    right: 100px;
+    top: 50px;
+  }
+
+  .logo {
+    font-size: 10em;
+    color: #ccc;
+  }
+
+  .date {
+    float: right;
+  }
+
+  .tag-cloud {
+    margin-top: 20px;
+  }
+
+  .img-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    vertical-align: middle;
+    margin-bottom:10px;
+  }
+
+  img {
+    max-width: 220px;
+    max-height: 220px;
+    margin: auto;
+    height: auto;
+    width: auto;
+  }
+
+  .square {
+    padding: 5px;
+    max-height: 220px;
+    max-width: 220px;
+    border: 1px solid #eee;
+    margin: 10px 20px 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+</style>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<div id="blog-list" class="section">
+  <div class="right-nav">
+    <span class="logo">🍄</span>
+    <div class="calendar">
+    {% for month in months %}
+      {{ month.name }} {{ month.year }}: Posts {{ month.post_count }}
+    {% endfor %}
+    <div class="tag-cloud">
+    Tags:<br>
+    {% for tag in tags %}
+      <a href="">{{ tag }}</a><br>
+    {% endfor %}
+    </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="col-main">
+      {% for blog_post in object_list %}
+        {% include "detail.html" %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<script>
+    //new SimpleLightbox({elements: '.img-container a'});
+</script>

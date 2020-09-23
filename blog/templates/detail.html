@@ -1,0 +1,12 @@
+{% load humanize %}
+<div class="blog-post-container">
+  <h2 class="post-title">{{ blog_post.title|upper }}</h2>
+  <div class="post-body">
+    {{ blog_post.body|safe }}<br><br>
+    {% include 'detail_images.html' %}
+  </div>
+  {% for tag in blog_post.tags.all %}
+    <a href="{{ tag.slug }}">#{{ tag }}</a>
+  {% endfor %}
+  <i class="fa fa-calendar date"> {{ blog_post.publish_date|date:"D, N jS, o - H:m" }}</i>
+</div>
