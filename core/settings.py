@@ -145,3 +145,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "link",
+}
